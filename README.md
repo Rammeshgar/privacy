@@ -1,2 +1,0 @@
-# privacy
-SynergyHub_backend
