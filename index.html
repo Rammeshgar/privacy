@@ -1,88 +1,237 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Privacy Policy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body { font-family: sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: 0 auto; }
-        h1, h2 { color: #333; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fraia - Privacy Policy</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<style>
+:root {
+--company-main: #1a172f;      /* Primary dark purple/blue */
+--company-secondary: #ff7676; /* Secondary reddish-pink accent */
+--bg-color: #f4f6f9;         /* Neutral light grey for page background */
+--card-bg: #fafafa;          /* Off-white for slide backgrounds */
+--text-color: #1a172f;       /* Primary color for main text */
+--text-muted: #6c757d;       /* A neutral muted grey for subtitles */
+--border-color: #e0e0e0;     /* Light grey border */
+--shadow-color-light: rgba(26, 23, 47, 0.1); /* Shadow based on your main color */
+--icon-accent-color: var(--company-main);
+--slide-padding: 50px 60px;
+}
+html { scroll-behavior: smooth; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.65;
+    font-size: 16px;
+}
+
+.slide {
+    min-height: auto; height: auto; background-color: var(--card-bg);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    position: relative; border: 1px solid var(--border-color); border-left: 8px solid var(--company-main);
+    width: 85%; max-width: 1100px; margin: 60px auto; padding: var(--slide-padding);
+    overflow: hidden; box-shadow: 0 10px 30px var(--shadow-color-light);
+    opacity: 0; transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.6s ease-out;
+    border-radius: 6px;
+}
+.slide:first-of-type { margin-top: 60px; }
+
+.slide.title-slide-bg {
+    background-color: var(--company-main); color: #fff; border-left-color: var(--company-secondary);
+}
+.slide.title-slide-bg .slide-title,
+.slide.title-slide-bg .slide-subtitle,
+.slide.title-slide-bg p { color: #fff; }
+
+.slide.alternate-bg { background-color: #f8f9fa; border-left-color: var(--company-secondary); }
+.is-visible { opacity: 1; transform: translateY(0); }
+
+.slide-content-wrapper { width: 100%; max-width: 900px; margin-left: auto; margin-right: auto; text-align: center; } 
+
+.slide-logo-placeholder { position: absolute; top: 30px; left: 40px; }
+.slide-logo-placeholder img { height: 40px; }
+.title-slide-bg .slide-logo-placeholder img { filter: brightness(0) invert(1); } /* Makes logo white on dark bg */
+
+.slide-title {
+     color: var(--company-main); font-size: 2.4em; font-weight: 700; 
+     line-height: 1.25; margin: 0 auto 20px auto; text-align: center;
+}
+.slide-subtitle {
+    font-size: 1.25em; color: var(--text-muted); margin-top: -10px; 
+    margin-bottom: 30px; text-align: center; font-weight: 400; max-width: 750px; margin-left:auto; margin-right:auto;
+}
+.title-slide-bg .slide-subtitle { color: rgba(255,255,255,0.85); }
+.slide-graphic {
+    font-size: 4em; color: var(--company-secondary); margin-bottom: 25px; 
+    text-align: center; min-height: 70px; line-height: 1;
+}
+
+.slide p { font-size: 1.1em; color: var(--text-color); margin-bottom: 18px; line-height: 1.7; text-align: left;}
+.slide p.centered-paragraph { text-align: center; max-width: 750px; margin-left:auto; margin-right:auto;} 
+.slide strong { color: var(--company-main); font-weight: 600; }
+.slide .highlight { color: var(--company-secondary); font-weight: 600; }
+.slide ul.checklist { list-style: none; padding-left: 0; margin: 25px auto; max-width: 700px; text-align:left; } 
+.slide ul.checklist li { font-size: 1.05em; margin-bottom: 15px; padding-left: 35px; position: relative; }
+.slide ul.checklist li i.fa-li { color: var(--icon-accent-color); position: absolute; left: 0; top: 6px; font-size: 1.2em; }
+.app-footer { text-align: center; margin: 0; padding: 30px 20px; border-top: 1px solid var(--border-color); font-size: 0.95em; color: var(--text-muted); background-color: var(--bg-color); width: 100%; box-sizing: border-box; }
+
+.is-visible .slide-title, .is-visible .slide-subtitle, .is-visible .slide-graphic, .is-visible p, .is-visible ul { 
+    opacity: 0; transform: translateY(20px); animation: fadeInSlideUpItem 0.6s ease-out forwards; 
+}
+.is-visible .slide-title { animation-delay: 0.1s; }
+.is-visible .slide-subtitle { animation-delay: 0.2s; }
+.is-visible .slide-graphic { animation-delay: 0.25s; }
+.is-visible p:nth-of-type(1) { animation-delay: 0.3s; }
+.is-visible ul { animation-delay: 0.35s; }
+
+@keyframes fadeInSlideUpItem { to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+   .slide { width: 90%; padding: 40px 30px; border-left-width: 6px;}
+   .slide-title { font-size: 2em; } .slide-subtitle { font-size: 1.1em; } .slide p { font-size: 1em; }
+}
+</style>
 </head>
 <body>
-    <h1>Privacy Policy</h1>
-    <p>
-        This Privacy Policy describes how <strong>Fraia</strong> ("we", "us", or "our") collects, uses, and discloses your information in connection with your use of our mobile application, <strong>
-FRAIA Companion</strong> (the "Service").
-    </p>
-    <p>
-        <strong>Last updated:</strong> June 27, 2024
-    </p>
 
-    <h2>Information Collection and Use</h2>
-    <p>
-        For a better experience while using our Service, we may require you to provide us with certain personally identifiable information. The information that we request will be retained by us and used as described in this privacy policy.
-    </p>
-    <p>
-        The app does use third-party services that may collect information used to identify you. Link to the privacy policy of third-party service providers used by the app:
-    </p>
-    <ul>
-        <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
-        <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase</a></li>
-    </ul>
+<!-- Slide 1: Title -->
+<section class="slide title-slide-bg">
+<div class="slide-logo-placeholder"><img src="Vr.2.png" alt="Fraia Logo"></div>
+<div class="slide-content-wrapper text-center">
+<div class="slide-graphic" style="font-size: 3.5em; margin-bottom: 25px; margin-top: 20px;">
+<i class="fas fa-user-shield"></i>
+</div>
+<h1 class="slide-title" style="font-size: 2.8em; line-height: 1.1; margin-bottom: 15px;">Privacy Policy</h1>
+<p class="slide-subtitle" style="font-size: 1.4em; color: rgba(255,255,255,0.9); margin-bottom:30px;">
+For the Fraia AI Platform and Services
+</p>
+<p class="centered-paragraph"><strong>Effective Date:</strong> [Date, e.g., June 28, 2024]</p>
+</div>
+</section>
 
-    <h2>Log Data</h2>
-    <p>
-        We want to inform you that whenever you use our Service, in a case of an error in the app, we collect data and information (through third-party products) on your phone called Log Data. This Log Data may include information such as your device Internet Protocol (“IP”) address, device name, operating system version, the configuration of the app when utilizing our Service, the time and date of your use of the Service, and other statistics.
-    </p>
+<!-- Slide 2: Our Role -->
+<section class="slide alternate-bg">
+    <div class="slide-logo-placeholder"><img src="Vr.2.png" alt="Fraia Logo"></div>
+    <div class="slide-content-wrapper">
+        <h2 class="slide-title">Our Role as a Data Processor</h2>
+        <p class="slide-subtitle">Understanding our role is key to understanding this policy. Our platform is a business-to-business (B2B) service.</p>
+        <p>This policy applies to the AI application platform ("Platform") and related services provided by <strong>[Your Company Name]</strong> ("Fraia", "we", "us", "our").</p>
+        <p>Our business customers ("Partners") use our Platform to build and deploy their own AI applications for their customers ("End Users"). In this relationship:</p>
+        <ul class="checklist">
+            <li><i class="fas fa-user-tie fa-li"></i>Our <strong>Partner</strong> is the <strong>Data Controller</strong>. They decide what End User data to collect and how it is used within the applications they build on our Platform. They are responsible for legal compliance regarding that data.</li>
+            <li><i class="fas fa-cogs fa-li"></i><strong>Fraia</strong> is the <strong>Data Processor</strong>. We process End User data only on the documented instructions of our Partner, as outlined in our agreement with them.</li>
+        </ul>
+        <p><strong>If you are an End User of an application provided by one of our Partners, please direct your privacy-related questions to that Partner.</strong></p>
+    </div>
+</section>
 
-    <h2>Cookies</h2>
-    <p>
-        Cookies are files with a small amount of data that are commonly used as anonymous unique identifiers. These are sent to your browser from the websites that you visit and are stored on your device's internal memory.
-    </p>
-    <p>
-        This Service does not use these “cookies” explicitly. However, the app may use third-party code and libraries that use “cookies” to collect information and improve their services. You have the option to either accept or refuse these cookies and know when a cookie is being sent to your device. If you choose to refuse our cookies, you may not be able to use some portions of this Service.
-    </p>
+<!-- Slide 3: Information We Process -->
+<section class="slide">
+    <div class="slide-logo-placeholder"><img src="Vr.2.png" alt="Fraia Logo"></div>
+    <div class="slide-content-wrapper">
+        <h2 class="slide-title">Information We Process</h2>
+        <p class="slide-subtitle">We process two categories of information: data on behalf of our Partners, and data we collect for our own purposes.</p>
+        
+        <h3 style="text-align:left; color: var(--company-main);">1. Data Processed on Behalf of Our Partners</h3>
+        <p>The type of End User data we process is determined by our Partners and the applications they create. This may include, but is not limited to:</p>
+        <ul class="checklist">
+            <li><i class="fas fa-id-card fa-li"></i><strong>Personal Identifiers:</strong> Name, email address, user ID, phone number.</li>
+            <li><i class="fas fa-comments fa-li"></i><strong>User-Generated Content:</strong> Text from conversations with AI, documents uploaded, queries submitted.</li>
+            <li><i class="fas fa-camera-retro fa-li"></i><strong>Vision Data:</strong> Images or videos uploaded for analysis by AI vision models.</li>
+            <li><i class="fas fa-server fa-li"></i>Any other data our Partners choose to collect through their applications.</li>
+        </ul>
 
-    <h2>Service Providers</h2>
-    <p>
-        We may employ third-party companies and individuals due to the following reasons:
-    </p>
-    <ul>
-        <li>To facilitate our Service;</li>
-        <li>To provide the Service on our behalf;</li>
-        <li>To perform Service-related services; or</li>
-        <li>To assist us in analyzing how our Service is used.</li>
-    </ul>
-    <p>
-        We want to inform users of this Service that these third parties have access to your Personal Information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.
-    </p>
+        <h3 style="text-align:left; color: var(--company-main); margin-top:30px;">2. Data We Collect Directly</h3>
+        <p>We collect information necessary to manage our relationship with our Partners:</p>
+        <ul class="checklist">
+             <li><i class="fas fa-user-circle fa-li"></i><strong>Partner Account Information:</strong> Contact details, billing information, and communication records for our Partners' representatives.</li>
+             <li><i class="fas fa-chart-line fa-li"></i><strong>Platform Usage Data:</strong> Aggregated, anonymized data about how our Partners use the Platform to monitor performance, improve our services, and ensure security.</li>
+        </ul>
+    </div>
+</section>
 
-    <h2>Security</h2>
-    <p>
-        We value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security.
-    </p>
+<!-- Slide 4: Use of Information & AI Training -->
+<section class="slide alternate-bg">
+    <div class="slide-logo-placeholder"><img src="Vr.2.png" alt="Fraia Logo"></div>
+    <div class="slide-content-wrapper">
+        <h2 class="slide-title">Use of Information & AI Training</h2>
+        <p class="slide-subtitle">Our primary purpose is to deliver our services, which includes improving the core AI that powers them.</p>
 
-    <h2>Links to Other Sites</h2>
-    <p>
-        This Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by us. Therefore, we strongly advise you to review the Privacy Policy of these websites. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.
-    </p>
+        <h3 style="text-align:left; color: var(--company-main);">How We Use Information</h3>
+        <p>We use the information we process to:</p>
+        <ul class="checklist">
+            <li><i class="fas fa-power-off fa-li"></i>Provide, operate, and maintain the Platform for our Partners.</li>
+            <li><i class="fas fa-tools fa-li"></i>Improve, personalize, and expand our services, including the underlying AI models.</li>
+            <li><i class="fas fa-shield-alt fa-li"></i>Ensure security, prevent fraud, and enforce our terms of service.</li>
+            <li><i class="fas fa-file-invoice fa-li"></i>Process transactions and manage our commercial relationship with Partners.</li>
+        </ul>
 
-    <h2>Children’s Privacy</h2>
-    <p>
-        These Services do not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13. In the case we discover that a child under 13 has provided us with personal information, we immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us so that we will be able to do the necessary actions.
-    </p>
+        <h3 style="text-align:left; color: var(--company-main); margin-top:30px;">AI Model Training</h3>
+        <p>A core part of our service is the continuous improvement of our AI models. To achieve this, data processed through the Platform, including End User data, may be used for training, validation, and development. We take steps to anonymize and de-identify this data where possible. Our Partners are made aware of this use in our service agreements.</p>
+    </div>
+</section>
 
-    <h2>Changes to This Privacy Policy</h2>
-    <p>
-        We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page.
-    </p>
-    <p>
-        This policy is effective as of 2025-06-27.
-    </p>
+<!-- Slide 5: Data Sharing and Security -->
+<section class="slide">
+    <div class="slide-logo-placeholder"><img src="Vr.2.png" alt="Fraia Logo"></div>
+    <div class="slide-content-wrapper">
+        <h2 class="slide-title">Data Sharing & Security</h2>
+        <p class="slide-subtitle">We do not sell personal data. We share it only in specific circumstances required to provide our service.</p>
+        
+        <h3 style="text-align:left; color: var(--company-main);">Data Sharing</h3>
+        <p>We may share information with:</p>
+        <ul class="checklist">
+            <li><i class="fas fa-cloud fa-li"></i><strong>Sub-processors:</strong> We use third-party vendors for hosting, infrastructure, and analytics (e.g., cloud providers like AWS, Google Cloud). We have data processing agreements in place with them.</li>
+            <li><i class="fas fa-gavel fa-li"></i><strong>Legal Compliance:</strong> If required by law, subpoena, or other legal process.</li>
+            <li><i class="fas fa-exchange-alt fa-li"></i><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets.</li>
+        </ul>
 
-    <h2>Contact Us</h2>
-    <p>
-        If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at <strong>sadeq@fraia.ai</strong>.
-    </p>
+        <h3 style="text-align:left; color: var(--company-main); margin-top:30px;">Security</h3>
+        <p>We implement robust technical and organizational measures to protect the data we process against unauthorized access, disclosure, alteration, or destruction. This includes encryption, access controls, and regular security assessments.</p>
+    </div>
+</section>
+
+<!-- Slide 6: Data Subject Rights & Contact -->
+<section class="slide alternate-bg">
+    <div class="slide-logo-placeholder"><img src="Vr.2.png" alt="Fraia Logo"></div>
+    <div class="slide-content-wrapper">
+        <h2 class="slide-title">Your Rights & Contact Information</h2>
+        <p class="slide-subtitle">How to exercise your rights and get in touch with us.</p>
+
+        <h3 style="text-align:left; color: var(--company-main);">Exercising Your Rights (for End Users)</h3>
+        <p>As we are the Data Processor, you must contact the <strong>Partner</strong> whose application you are using to exercise your rights, such as:</p>
+        <ul class="checklist">
+            <li><i class="fas fa-eye fa-li"></i>The right to <strong>access</strong> your personal data.</li>
+            <li><i class="fas fa-edit fa-li"></i>The right to <strong>correct</strong> inaccuracies in your data.</li>
+            <li><i class="fas fa-trash-alt fa-li"></i>The right to <strong>delete</strong> your data.</li>
+        </ul>
+        <p>We will provide reasonable assistance to our Partners to help them respond to your requests.</p>
+        
+        <h3 style="text-align:left; color: var(--company-main); margin-top:30px;">Contact Us</h3>
+        <p>If you are a Partner, or if you have questions about this Privacy Policy that cannot be answered by a Partner, please contact us at:</p>
+        <p style="text-align:center; font-size: 1.2em;"><strong><a href="mailto:[Your Contact Email]">[Your Contact Email]</a></strong></p>
+    </div>
+</section>
+
+<footer class="app-footer">
+    © <script>document.write(new Date().getFullYear());</script> [Your Company Name]. All Rights Reserved.
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const sections = document.querySelectorAll('.slide');
+const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+const observerCallback = (entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible'); }); };
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+sections.forEach(section => observer.observe(section));
+if (sections.length > 0) { setTimeout(() => { const firstSlideRect = sections[0].getBoundingClientRect(); if (firstSlideRect.top < window.innerHeight && firstSlideRect.bottom >= 0) sections[0].classList.add('is-visible'); }, 100); }
+});
+</script>
+
 </body>
 </html>
