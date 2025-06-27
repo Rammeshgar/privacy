@@ -1,27 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Account Deletion</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body { font-family: sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: 0 auto; }
-        h1 { color: #333; }
-        a { color: #007bff; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fraia - Data Deletion</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<style>
+:root {
+--company-main: #1a172f;      /* Primary dark purple/blue */
+--company-secondary: #ff7676; /* Secondary reddish-pink accent */
+--bg-color: #f4f6f9;         /* Neutral light grey for page background */
+--card-bg: #fafafa;          /* Off-white for slide backgrounds */
+--text-color: #1a172f;       /* Primary color for main text */
+--text-muted: #6c757d;       /* A neutral muted grey for subtitles */
+--border-color: #e0e0e0;     /* Light grey border */
+--shadow-color-light: rgba(26, 23, 47, 0.1); /* Shadow based on your main color */
+--icon-accent-color: var(--company-main);
+--slide-padding: 50px 60px;
+}
+html { scroll-behavior: smooth; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.65;
+    font-size: 16px;
+}
+
+.slide {
+    min-height: auto; height: auto; background-color: var(--card-bg);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    position: relative; border: 1px solid var(--border-color); border-left: 8px solid var(--company-main);
+    width: 85%; max-width: 1100px; margin: 60px auto; padding: var(--slide-padding);
+    overflow: hidden; box-shadow: 0 10px 30px var(--shadow-color-light);
+    border-radius: 6px;
+    opacity: 1; /* Make visible by default */
+}
+.slide.title-slide-bg {
+    background-color: var(--company-main); color: #fff; border-left-color: var(--company-secondary);
+}
+.slide.title-slide-bg .slide-title,
+.slide.title-slide-bg .slide-subtitle,
+.slide.title-slide-bg p { color: #fff; }
+
+.slide-content-wrapper { width: 100%; max-width: 900px; margin-left: auto; margin-right: auto; text-align: center; } 
+
+.slide-logo-placeholder { position: absolute; top: 30px; left: 40px; }
+.slide-logo-placeholder img { height: 40px; }
+.title-slide-bg .slide-logo-placeholder img { filter: brightness(0) invert(1); } /* Makes logo white on dark bg */
+
+.slide-title {
+     color: var(--company-main); font-size: 2.4em; font-weight: 700; 
+     line-height: 1.25; margin: 0 auto 20px auto; text-align: center;
+}
+.slide-subtitle {
+    font-size: 1.25em; color: var(--text-muted); margin-top: -10px; 
+    margin-bottom: 30px; text-align: center; font-weight: 400; max-width: 750px; margin-left:auto; margin-right:auto;
+}
+.slide p { font-size: 1.1em; color: var(--text-color); margin-bottom: 18px; line-height: 1.7; text-align: left;}
+.slide strong { color: var(--company-main); font-weight: 600; }
+.app-footer { text-align: center; margin: 0; padding: 30px 20px; border-top: 1px solid var(--border-color); font-size: 0.95em; color: var(--text-muted); background-color: var(--bg-color); width: 100%; box-sizing: border-box; }
+
+@media (max-width: 768px) {
+   .slide { width: 90%; padding: 40px 30px; border-left-width: 6px;}
+   .slide-title { font-size: 2em; } .slide-subtitle { font-size: 1.1em; } .slide p { font-size: 1em; }
+}
+</style>
 </head>
 <body>
-    <h1>Account and Data Deletion</h1>
-    <p>
-        To request the deletion of your <strong>FRAIA Companion</strong> account and all associated data, please send an email to:
-    </p>
-    <p>
-        <a href="mailto:sadeq@fraia.ai?subject=Account%20Deletion%20Request%20for%20FRAIA%20Companion"><strong>sadeq@fraia.ai</strong></a>
-    </p>
-    <p>
-        Please use the subject line: "Account Deletion Request for FRAIA Companion".
-    </p>
-    <p>
-        Your account and all related data will be permanently deleted from our systems within 30 days of receiving your request. We will notify you by email once the deletion is complete.
-    </p>
+
+<!-- Slide 1: Title -->
+<section class="slide title-slide-bg">
+<div class="slide-logo-placeholder"><img src="https://assets-global.website-files.com/65f322c4534f0dba3eb15ef6/65f322c4534f0dba3eb15f53_256.png" alt="Fraia Logo"></div>
+<div class="slide-content-wrapper text-center">
+<h1 class="slide-title" style="font-size: 2.8em; line-height: 1.1; margin-bottom: 15px;">Data & Account Deletion</h1>
+<p class="slide-subtitle" style="font-size: 1.4em; color: rgba(255,255,255,0.9); margin-bottom:30px;">
+Instructions for End Users and Partners
+</p>
+</div>
+</section>
+
+<!-- Slide 2: Instructions -->
+<section class="slide">
+    <div class="slide-logo-placeholder"><img src="https://assets-global.website-files.com/65f322c4534f0dba3eb15ef6/65f322c4534f0dba3eb15f53_256.png" alt="Fraia Logo"></div>
+    <div class="slide-content-wrapper">
+        <h2 class="slide-title">How to Request Deletion</h2>
+        <p class="slide-subtitle">Please follow the instructions based on your relationship with us.</p>
+
+        <h3 style="text-align:left; color: var(--company-main);">For End Users of Partner Applications</h3>
+        <p>If you use an application built on the Fraia platform (e.g., an app from PeoplesDoctor, Nordisk Film, etc.), you are an "End User".</p>
+        <p>As stated in our Privacy Policy, the company that provides the application to you is the Data Controller. <strong>You must contact that company directly to request the deletion of your account and data.</strong></p>
+        <p>We cannot process deletion requests that come directly from End Users, as we must act on the instructions of our Partners (the Data Controllers).</p>
+
+        <h3 style="text-align:left; color: var(--company-main); margin-top:40px;">For Our Direct Partners</h3>
+        <p>If you are a direct business customer ("Partner") of Fraia and wish to delete your Partner account and all associated data from our platform, please send an email to:</p>
+        <p style="text-align:center; font-size: 1.2em;"><strong><a href="mailto:sadeq@fraia.ai?subject=Partner%20Account%20Deletion%20Request">sadeq@fraia.ai</a></strong></p>
+        <p>Please use the subject line: "Partner Account Deletion Request". We will process your request in accordance with our service agreement.</p>
+    </div>
+</section>
+
+<footer class="app-footer">
+    © <script>document.write(new Date().getFullYear());</script> Fraia. All Rights Reserved.
+</footer>
+
 </body>
 </html>
